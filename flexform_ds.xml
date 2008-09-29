@@ -93,6 +93,34 @@
           </config>
         </TCEforms>
       </title>
+
+	 		<categoryOrder>
+				<TCEforms>
+          <displayCond>FIELD:show:IN:LIST</displayCond>
+				<label>LLL:EXT:chgallery/locallang_db.xml:categoryOrder</label>
+					<config>
+						<type>select</type>
+						<items type="array">
+							<numIndex index="1" type="array">
+								<numIndex index="0"></numIndex>
+								<numIndex index="1"></numIndex>
+							</numIndex>
+							<numIndex index="2" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.asc</numIndex>
+								<numIndex index="1">asc</numIndex>
+							</numIndex>
+							<numIndex index="3" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.desc</numIndex>
+								<numIndex index="1">desc</numIndex>
+							</numIndex>
+	
+						</items>
+						<maxitems>1</maxitems>
+						<size>1</size>
+					</config>
+				</TCEforms>
+			</categoryOrder>
+
 <!--
  			<description>
 				<TCEforms>

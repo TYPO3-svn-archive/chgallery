@@ -22,7 +22,10 @@
 			<label index="title">Category title &amp; description</label>
 			<label index="descriptionList">Description</label>			
 			<label index="single">Use Single view</label>
-
+			<label index="categoryOrder">Order of categories</label>
+			<label index="categoryOrder.asc">ascending</label>
+			<label index="categoryOrder.desc">descending</label>
+			
 			<label index="preview">Preview</label>
 		</languageKey>
 		<languageKey index="de" type="array">
@@ -42,6 +45,9 @@
 			<label index="title">Kategorietitel &amp; -beschreibung</label>
 			<label index="descriptionList">Beschreibung</label>			
 			<label index="single">Benutze Detail-Ansicht</label>
+			<label index="categoryOrder">Sortierung der Kategorien</label>
+			<label index="categoryOrder.asc">aufsteigend</label>
+			<label index="categoryOrder.desc">absteigend</label>
 
 			<label index="preview">Vorschau</label>
 		</languageKey>

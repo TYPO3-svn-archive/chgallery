@@ -229,7 +229,15 @@ class tx_chgallery_pi1 extends tslib_pibase {
 			$marker['###RATINGS###'] = $this->ratecObj->cObjGetSingle('USER_INT', $this->rate['conf']);
 		} else {
 			$marker['###RATINGS###'] = '';
-		}			
+		}	
+		
+		// Adds hook for processing of extra item markers
+		if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['chgallery']['extraItemMarkerHook'])) {
+			foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['chgallery']['extraItemMarkerHook'] as $_classRef) {
+				$_procObj = & t3lib_div::getUserObj($_classRef);
+				$marker = $_procObj->extraItemMarkerProcessor($marker, $path, $pos, $view, $this);
+			}
+		}				
 		
 		return $marker;
 	}
@@ -306,7 +314,8 @@ class tx_chgallery_pi1 extends tslib_pibase {
 		$titleList = explode(chr(10), $this->config['listTitle']);
 
 		if(is_array($dir) && !empty($dir)) {
-			array_multisort($dir, SORT_DESC, SORT_STRING);
+			$sort = ($this->config['categoryOrder']=='asc') ? SORT_ASC : SORT_DESC;
+			array_multisort($dir, $sort , SORT_STRING);
 		}
 
 		if (is_array($dir)) {
@@ -574,6 +583,14 @@ class tx_chgallery_pi1 extends tslib_pibase {
   	
   	// put everything into the template
 		$subpartArray['###CONTENT###'] = $content_item;
+		
+		// Adds hook for processing of extra item markers
+		if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['chgallery']['extraGalleryPageMarkerHook'])) {
+			foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['chgallery']['extraGalleryPageMarkerHook'] as $_classRef) {
+				$_procObj = & t3lib_div::getUserObj($_classRef);
+				$markerArray = $_procObj->extraItemMarkerProcessor($markerArray, $path, $pb, $this);
+			}
+		}			
 
 		$content.= $this->cObj->substituteMarkerArrayCached($template['total'], $markerArray, $subpartArray);
 		return $content;
@@ -744,6 +761,7 @@ class tx_chgallery_pi1 extends tslib_pibase {
 		$this->config['single']				= $this->getFlexform('', 'single', 'single');
 		$this->config['renderAllLinks'] = $this->conf['gallery.']['renderAllLinks'];
 		$this->config['exclude1stImg']	= ($this->conf['gallery.']['excludeFirstImage'] && $this->config['show']=='LIST' && $this->piVars['dir']!=0) ? 1: 0;		
+		$this->config['categoryOrder']	= $this->getFlexform('', 'categoryOrder', 'categoryOrder');
 
 		// create an array of subfolders
 		$this->config['subfolders'] = $this->getFullDir($this->config['path']);

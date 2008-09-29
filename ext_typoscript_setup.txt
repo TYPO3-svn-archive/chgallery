@@ -20,6 +20,7 @@ plugin.tx_chgallery_pi1 {
 	pagebrowser = 9
 	ajax = 0
   useAnchor = 1
+  categoryOrder = asc
   exif = 1
   ratings = 1
   ratings {
