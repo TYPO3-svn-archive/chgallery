@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>module</type>
+        <description>Language labels for chgallery module tx_chgallery_image_aassawiz0</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="images">%s Images of the directory "%s"</label>
+            <label index="save">Save &amp; Close</label>
+            <label index="save2">Save</label>            
+            <label index="close">Close window</label>
+            <label index="error-header">An error occurred</label>
+            <label index="error-neversavesd">Please save the plugin once and also a path!</label>
+            <label index="error-path">No path is defined!</label>
+            <label index="error-pathwrong">The path is not valid!</label>
+            
+            <label index="path">Wizard for %s galleries, subfolders of %s </label>
+            <label index="title">Titel</label>            
+            <label index="description">Click at the title of the subdirectory to open the images of this directory. Fill out the descriptions you need and press close!</label>
+        </languageKey>
+
+				<!-- GERMAN -->
+        <languageKey index="de" type="array">
+            <label index="images">%s Bilder aus dem Verzeicnnis "%s"</label>
+            <label index="save">Speichern &amp; Schließen</label>
+            <label index="save2">Speichern</label>
+            <label index="description">Klicke auf den Namen des Unterverzeichnisses, um die zugehörigen Bilder zu öffnen. Gib eine Beschreibung ein und klicke am Ende auf 'Speichern'.</label>
+        </languageKey>
+
+    </data>
+</T3locallang>

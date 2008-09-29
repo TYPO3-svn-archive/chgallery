@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_chgallery_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<!-- possible: ###FROM###, ###TO###, ###OUT_OF###, ###FROM_TO###, ###CURRENT_PAGE###, ###TOTAL_PAGES### -->
+			<label index="pi_list_browseresults_displays">Page &lt;span class="chgcurrent"&gt;###CURRENT_PAGE###&lt;/span&gt; of &lt;span class="chgtotal"&gt;###TOTAL_PAGES###&lt;/span&gt;</label>
+			<label index="pi_list_browseresults_next">Next Page</label>
+			<label index="pi_list_browseresults_prev">Previous Page</label>
+			<label index="pi_list_browseresults_first">Back to the overview</label>			
+			<label index="pi_list_browseresults_last">Last Page</label>
+			
+			<label index="dir_back">Back to the gallery list</label>
+			<label index="size">Number of images</label>			
+			<label index="path">Path</label>
+			<label index="name">Directory</label>
+			<label index="date">Date</label>		
+			<label index="description">Description</label>
+			<label index="download">Download</label>
+			<label index="exif_size">Size</label>
+			<label index="exif_time">Time</label>			
+			<label index="filename">File</label>
+			<label index="previousImage">Previous image</label>			
+			<label index="nextImage">Next image</label>
+		</languageKey>
+
+		<languageKey index="de" type="array">
+			<label index="pi_list_browseresults_displays">Seite &lt;span class="chgcurrent"&gt;###CURRENT_PAGE###&lt;/span&gt; von &lt;span class="chgtotal"&gt;###TOTAL_PAGES###&lt;/span&gt;</label>
+			<label index="pi_list_browseresults_next">Nächste Seite &amp;raquo;</label>
+			<label index="pi_list_browseresults_prev">&amp;laquo; Vorige Seite</label>
+			<label index="pi_list_browseresults_first">Zurück zur Übersicht</label>			
+			<label index="pi_list_browseresults_last">Letzte Seite</label>
+
+			<label index="dir_back">Zurück zur Auswahl</label>
+			<label index="size">Anzahl an Bilder</label>
+			<label index="path">Pfad</label>
+			<label index="name">Ordner</label>
+			<label index="date">Datum</label>
+			<label index="description">Beschreibung</label>
+			<label index="download">Download</label>
+			<label index="exif_size">Größe</label>
+			<label index="exif_time">Uhrzeit</label>			
+			<label index="filename">Datei</label>
+			<label index="previousImage">voriges Bild</label>			
+			<label index="nextImage">nächstes Bild</label>
+
+		</languageKey>
+
+	</data>
+</T3locallang>

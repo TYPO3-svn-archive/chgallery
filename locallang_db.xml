@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'chgallery'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">Simple gallery - chgallery</label>
+			<label index="show">Display</label>
+			<label index="show.list">CATEGORY	 view => Categories (subdirs)</label>
+			<label index="show.gallery">GALLERY view => Images of a dir</label>
+			<label index="show.single">SINGLE view => Single image</label>			
+			<label index="settings">Settings</label>			
+			<label index="path">Path</label>
+			<label index="pagebrowser">Images / page</label>
+			<label index="description">Description</label>
+			<label index="random">Random Mode</label>
+			<label index="link">Link all images to</label>			
+			<label index="width">Image width</label>
+			<label index="height">Image height</label>
+			<label index="title">Category title &amp; description</label>
+			<label index="descriptionList">Description</label>			
+			<label index="single">Use Single view</label>
+
+			<label index="preview">Preview</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tt_content.list_type_pi1">Einfache Galerie - chgallery</label>
+			<label index="show">Anzeige</label>
+			<label index="show.list">KATEGORY-Ansicht => Kategorien mit Unterverzeichnissen</label>
+			<label index="show.gallery">GALERIE-Ansicht => Bilder aus Verzeichnissen</label>
+			<label index="show.single">DETAIL-Ansicht => Einzelanzeige</label>			
+			<label index="settings">Einstellungen</label>			
+			<label index="path">Pfad der Bilder</label>
+			<label index="pagebrowser">Bilder / Seite</label>
+			<label index="description">Beschreibung</label>
+			<label index="random">Zufallsmodus</label>
+			<label index="link">Alle Bilder verlinken</label>			
+			<label index="width">Bildbreite</label>
+			<label index="height">Bildhöhe</label>
+			<label index="title">Kategorietitel &amp; -beschreibung</label>
+			<label index="descriptionList">Beschreibung</label>			
+			<label index="single">Benutze Detail-Ansicht</label>
+
+			<label index="preview">Vorschau</label>
+		</languageKey>
+	</data>
+</T3locallang>
