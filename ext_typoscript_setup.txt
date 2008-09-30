@@ -109,7 +109,7 @@ plugin.tx_chgallery_pi1 {
 			}
 		}
 
-		renderAllLinks = 1
+		renderAllLinks = 0
 		renderAllLinks {
 			title.field= tx_chgalleryTitle
 			

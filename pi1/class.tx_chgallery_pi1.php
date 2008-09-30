@@ -208,7 +208,7 @@ class tx_chgallery_pi1 extends tslib_pibase {
 		// load information from exif
 		if ($this->conf['exif']==1 && t3lib_div::inArray( get_loaded_extensions(), 'exif' )) {
 			$exif_array = @exif_read_data( $path, true, false ); // Load all EXIF informations from the original Pic in an Array
-			$marker['###EXIF###'] = 'exif: '.t3lib_div::view_array($exif_array);
+			$marker['###EXIF###'] = '1';
 			$marker['###EXIF_SIZE###'] =  $this->cObj->stdWrap($exif_array['FileSize'], $conf['exif_size.']);
 			$marker['###EXIF_TIME###'] =  $this->cObj->stdWrap($exif_array['FileDateTime'], $conf['exif_time.']);			
 		} else {
@@ -624,10 +624,11 @@ class tx_chgallery_pi1 extends tslib_pibase {
 		$links = '';
 		$imageConf = $this->conf['gallery.']['renderAllLinks.'];
 		foreach ($imgList as $key=>$singleImage) {
+
 			$this->cObj->data['tx_chgalleryImageLong'] = $singleImage['file'];
-			$imageConf['altText'] = str_replace('"','\'',$singleImage['text']);
+			$imageConf['altText'] = str_replace('"','\'',$this->getDescription($singleImage['file'], 'file'));
 			$this->cObj->data['tx_chgalleryTitle'] = $imageConf['altText'];
-			
+
 			$links.= $this->cObj->typolink(' ', $imageConf);
 		}
 		return $links;
@@ -796,19 +797,31 @@ class tx_chgallery_pi1 extends tslib_pibase {
 		}
 			
 	}
-	
+
+
+	/**
+	 * Check the path for a secure and valid one
+	 *
+	 * @param	string		$path: Path which is checked
+	 * @return	string	valid path
+	 */	
 	function checkPath($path) {
 		$path = trim($path);
 		if (!t3lib_div::validPathStr($path)) {
 			return '';
 		}
 		
-		if (substr($path,-1)!='/') {
+		if (substr($path,-1)!='/') { // check for needed / at the end
       $path =  $path.'/';
+		}
+		
+		if (substr($path, 0, 1) =='/') { // check for / at the beginning
+			$path = substr($path, 1, -1);
 		}
 
 		return $path;
 	}
+	
 
 	/**
 	 * Get the value out of the flexforms and if empty, take if from TS

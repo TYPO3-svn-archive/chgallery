@@ -197,7 +197,7 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 		$newdir = array();
 
 		if(is_array($dir) && !empty($dir)) {
-			array_multisort($dir, SORT_DESC, SORT_STRING);
+			array_multisort($dir, SORT_ASC, SORT_STRING);
 		}
 
 		if (is_array($dir)) {

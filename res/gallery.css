@@ -119,13 +119,13 @@
 .tx-chgallery-pi1 .single .img {
 	width:160px;
 	height:126px;
-	background:url(bg.gif) no-repeat;
+	background:url(gfx/bg.gif) no-repeat;
 	line-height:126px;
 	position:relative;
 }
 
 .tx-chgallery-pi1 .act .img {
-	background:url(bgact.gif) no-repeat;
+	background:url(gfx/bgact.gif) no-repeat;
 }
 
 .tx-chgallery-pi1 .single .img .align {
@@ -179,7 +179,7 @@
 
 /* Ajax loading icon  */
 .tx-chgallery-pi1 #chajax {
-	background:#fff url(ajaxloading.gif) no-repeat center center;
+	background:#fff url(gfx/ajaxloading.gif) no-repeat center center;
 	position:absolute;
 	height:490px;
 	width:550px;

@@ -52,8 +52,8 @@ class tx_chgallery_realurl {
 	}
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/chgallery/class.tx_chgallery_realurl.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/chgallery/class.tx_chgallery_realurl.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/chgallery/lib/class.tx_chgallery_realurl.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/chgallery/lib/class.tx_chgallery_realurl.php']);
 }
 
 ?>
