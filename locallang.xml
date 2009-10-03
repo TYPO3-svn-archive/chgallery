@@ -13,5 +13,14 @@
 			<label index="pi1_title">Einfache Galerie</label>
 			<label index="pi1_plus_wiz_description">Galerie mit Bildern aus einem Verzeichnis inkl. Seitenumbruch.</label>
 		</languageKey>
+		<languageKey index="nl" type="array">
+			<label index="pi1_title">Eenvoudige gallery</label>
+			<label index="pi1_plus_wiz_description">Een simpele gallery met foto's uit folders &amp; een paginabrowser.</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="pi1_title">Galerie simple</label>
+			<label index="pi1_plus_wiz_description">Galerie avec des images d'un répertoire et une pagination.</label>
+		</languageKey>
+		
 	</data>
 </T3locallang>

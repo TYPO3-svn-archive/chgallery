@@ -8,35 +8,38 @@
 	<ROOT>
 		<TCEforms>
 			<sheetTitle>LLL:EXT:chgallery/locallang_db.xml:settings</sheetTitle>
+			<cshFile>LLL:EXT:chgallery/locallang_csh.xml</cshFile>
 		</TCEforms>
 		<type>array</type>
 		<el>
 
- 		<show>
-			<TCEforms>
-			<label>LLL:EXT:chgallery/locallang_db.xml:show</label>
-				<config>
-					<type>select</type>
-					<items type="array">
-						<numIndex index="1" type="array">
-							<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:show.gallery</numIndex>
-							<numIndex index="1">GALLERY</numIndex>
-						</numIndex>
-						<numIndex index="2" type="array">
-							<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:show.list</numIndex>
-							<numIndex index="1">LIST</numIndex>
-						</numIndex>
-						<numIndex index="3" type="array">
-							<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:show.single</numIndex>
-							<numIndex index="1">SINGLE</numIndex>
-						</numIndex>
-
-					</items>
-					<maxitems>1</maxitems>
-					<size>1</size>
-				</config>
-			</TCEforms>
-		</show>
+	 		<show>
+				<TCEforms>
+				<label>LLL:EXT:chgallery/locallang_db.xml:show</label>
+					<config>
+						<type>select</type>
+						<items type="array">
+							<numIndex index="1" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:show.gallery</numIndex>
+								<numIndex index="1">GALLERY</numIndex>
+								<numIndex index="2">EXT:chgallery/lib/gfx/flex_pictures.png</numIndex>
+							</numIndex>
+							<numIndex index="2" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:show.list</numIndex>
+								<numIndex index="1">LIST</numIndex>
+								<numIndex index="2">EXT:chgallery/lib/gfx/flex_folder.png</numIndex>
+							</numIndex>
+							<numIndex index="3" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:show.single</numIndex>
+								<numIndex index="1">SINGLE</numIndex>
+								<numIndex index="2">EXT:chgallery/lib/gfx/flex_picture.png</numIndex>
+							</numIndex>
+						</items>
+						<maxitems>1</maxitems>
+						<size>1</size>
+					</config>
+				</TCEforms>
+			</show>
 
 			<path>
 				<TCEforms>
@@ -44,7 +47,7 @@
 				<config>
 					<type>input</type>
 					<size>30</size>
-					<eval>trim</eval>
+					<eval>trim,tx_chgallery_extraeval</eval>
 					<wizards>
 					<_PADDING>2</_PADDING>
 					<link>
@@ -61,7 +64,6 @@
 
       <description>
 				<TCEforms>
-<!-- 				<displayCond>FIELD:show:!IN:LIST</displayCond> -->
 				<label>LLL:EXT:chgallery/locallang_db.xml:description</label>
 					<config>
 						<type>user</type>
@@ -106,44 +108,55 @@
 								<numIndex index="1"></numIndex>
 							</numIndex>
 							<numIndex index="2" type="array">
-								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.asc</numIndex>
-								<numIndex index="1">asc</numIndex>
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.title</numIndex>
+								<numIndex index="1">title</numIndex>
 							</numIndex>
 							<numIndex index="3" type="array">
-								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.desc</numIndex>
-								<numIndex index="1">desc</numIndex>
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.path</numIndex>
+								<numIndex index="1">path</numIndex>
 							</numIndex>
-	
+							<numIndex index="4" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.date</numIndex>
+								<numIndex index="1">date</numIndex>
+							</numIndex>
+							<numIndex index="5" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryOrder.size</numIndex>
+								<numIndex index="1">size</numIndex>
+							</numIndex>
+								
 						</items>
 						<maxitems>1</maxitems>
 						<size>1</size>
 					</config>
 				</TCEforms>
 			</categoryOrder>
-
-<!--
- 			<description>
+	
+			<categoryAscDesc>
 				<TCEforms>
-				<displayCond>FIELD:show:!IN:LIST</displayCond>
-				<label>LLL:EXT:chgallery/locallang_db.xml:description</label>
-				<config>
-					<type>input</type>
-					<size>1</size>
-					<wizards>
-					<_PADDING>2</_PADDING>
-					<link>
-						<type>popup</type>
-						<title>Image Description Wizard</title>
-						<icon>EXT:chgallery/wizard/wizard.gif</icon>
-						<script>EXT:chgallery/wizard/index.php</script>
-						<JSopenParams>height=600,width=550,status=1,menubar=1,scrollbars=1</JSopenParams>
-					</link>
-					</wizards>					
-					
-				</config>
+          <displayCond>FIELD:show:IN:LIST</displayCond>
+					<label>LLL:EXT:chgallery/locallang_db.xml:categoryAscDesc</label>
+					<config>
+						<type>select</type>
+						<items type="array">
+						<numIndex index="0" type="array">
+								<numIndex index="0"></numIndex>
+								<numIndex index="1"></numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryAscDesc.asc</numIndex>
+								<numIndex index="1">asc</numIndex>
+							</numIndex>
+							<numIndex index="2" type="array">
+								<numIndex index="0">LLL:EXT:chgallery/locallang_db.xml:categoryAscDesc.desc</numIndex>
+								<numIndex index="1">desc</numIndex>
+							</numIndex>
+						</items>
+						<maxitems>1</maxitems>
+						<size>1</size>
+					</config>
 				</TCEforms>
-			</description>
--->
+			</categoryAscDesc>
+		
 			<pagebrowser>
 				<TCEforms>
 				<label>LLL:EXT:chgallery/locallang_db.xml:pagebrowser</label>
@@ -163,23 +176,7 @@
 				</TCEforms>
 			</random>
 
-			<link>
-				<TCEforms>
-				<exclude>1</exclude>
-					<label>LLL:EXT:chgallery/locallang_db.xml:link</label>
-				<config>
-					<type>group</type>
-					<internal_type>db</internal_type>
-					<allowed>pages</allowed>
-					<size>1</size>
-					<maxitems>1</maxitems>
-					<minitems>0</minitems>
-					<show_thumbs>1</show_thumbs>
-				</config>
-				</TCEforms>
-			</link>
 
-	
 
 			<single>
 				<TCEforms>
@@ -194,6 +191,72 @@
 		</el>
 	</ROOT>
 	</sDEF>
+	
+	<more>
+		<ROOT>
+			<TCEforms>
+				<sheetTitle>LLL:EXT:chgallery/locallang_db.xml:more</sheetTitle>
+				<cshFile>LLL:EXT:chgallery/locallang_csh.xml</cshFile>
+			</TCEforms>
+			<type>array</type>
+			<el>
+
+			<renderAllLinks>
+				<TCEforms>
+				<label>LLL:EXT:chgallery/locallang_db.xml:renderAllLinks</label>
+				<config>
+					<type>check</type>
+				</config>
+				</TCEforms>
+			</renderAllLinks>		
+
+			<excludeFirstImage>
+				<TCEforms>
+				<label>LLL:EXT:chgallery/locallang_db.xml:excludeFirstImage</label>
+				<config>
+					<type>check</type>
+				</config>
+				</TCEforms>
+			</excludeFirstImage>	
+
+
+			<link>
+				<TCEforms>
+				<exclude>1</exclude>
+					<label>LLL:EXT:chgallery/locallang_db.xml:link</label>
+				<config>
+					<type>group</type>
+					<internal_type>db</internal_type>
+					<allowed>pages</allowed>
+					<size>1</size>
+					<maxitems>1</maxitems>
+					<minitems>0</minitems>
+					<show_thumbs>1</show_thumbs>
+				</config>
+				</TCEforms>
+			</link>		
+
+			<templateFile>
+				<TCEforms>
+					<label>LLL:EXT:chgallery/locallang_db.xml:templateFile</label>
+					<config>
+						<type>group</type>
+						<internal_type>file</internal_type>
+						<allowed>tmpl,html,htm</allowed>
+						<max_size>100</max_size>
+						<uploadfolder>uploads/tx_chgallery</uploadfolder>
+						<maxitems>1</maxitems>
+						<size>1</size>
+						<show_thumbs>1</show_thumbs>
+						<selectedListStyle>width:150px</selectedListStyle>
+					</config>
+				</TCEforms>
+			</templateFile>
+
+			
+			</el>
+		</ROOT>
+	</more>
 	
 	<preview>
 		<ROOT>

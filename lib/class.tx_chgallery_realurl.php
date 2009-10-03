@@ -28,7 +28,6 @@ require_once(t3lib_extMgm::extPath('realurl', 'class.tx_realurl_advanced.php'));
 class tx_chgallery_realurl {
 
 
-
 	/**
 	 * Generates additional RealURL configuration and merges it with provided configuration
 	 *
@@ -37,18 +36,38 @@ class tx_chgallery_realurl {
 	 * @return	array		Updated configuration
 	 */
 	function addChgalleryConfig($params, &$pObj) {
-		return array_merge_recursive($params['config'], array(
-				    'postVarSets' => array(
-						'_DEFAULT' => array(
-							'galerie' => array(
-								array(
-									'GETvar' => 'tx_chgallery_pi1[pointer]',
+		return array_merge_recursive($params['config'],
+						array(
+							'postVarSets' => array(
+								'_DEFAULT' => array(
+									'galerie' => array(
+										array(
+											'GETvar' => 'tx_chgallery_pi1[pointer]',
+										),
+										array(
+											'GETvar' => 'tx_chgallery_pi1[dir]',
+										),
+										array(
+											'GETvar' => 'tx_chgallery_pi1[single]',
+										),
+										array(
+											'GETvar' => 'tx_chgallery_pi1[ceid]',
+										),
+									),
 								),
-								array(
-									'GETvar' => 'tx_chgallery_pi1[dir]',
-								),						
-							),	
-					))));
+							),
+							'fileName' => array (
+								'index' => array(
+									'chgallery.rss' => array(
+										'keyValues' => array (
+											'type' => 9713,
+										),
+									),
+								),
+							),
+						),
+					);
+
 	}
 }
 

@@ -11,7 +11,7 @@ A L L   M A R K E R S:
 -------------------------
 
 === CATEGORY VIEW ===
-=================
+=====================
 	1.) General
 		IMAGE 					=> Preview image
 		TITLE 					=> Title of category
@@ -54,9 +54,10 @@ A L L   M A R K E R S:
 		PAGEBROWSER			=> Subpart to hide the pagebrowser if random mode is used
 		SUBDIR_NAVIGATION => Subpart to hide category navigation of not used
 		EXIF 						=> Subpart to hide exif information 
+		COOLIRIS				=> Subpart to hide cooliris information
 
 === SINGLE VIEW ===
-====================
+===================
 	1.) General
 		IMAGE						=> Image
 		FILENAME				=> Filename of the image
@@ -66,6 +67,8 @@ A L L   M A R K E R S:
 		DOWNLOAD				=> Downloadlink of the image
 		RATINGS					=> RATING using EXT:ratings
 		POSITION				=> Position of the current image
+		FILETYPE				=> File type only
+		FILENAME2				=> Filename without type
 		
 	2.) Pagebrowser
 		PREV						=> Link to the previous image
@@ -75,6 +78,7 @@ A L L   M A R K E R S:
 <!-- ###TEMPLATE_SINGLE### -->
 <!--###SINGLE_IMAGE### -->
 	<div class="info">
+<div class="position">###POSITION###</div>
 		<div class="filename"><span>###LL_FILENAME###:</span> ###FILENAME###</div>
 		<div class="descr"><span>###LL_DESCRIPTION###:</span> ###DESCRIPTION###</div>
 		<!-- ###EXIF### -->
@@ -105,6 +109,13 @@ A L L   M A R K E R S:
 
 
 <!-- ###TEMPLATE### -->
+	<!-- ###COOLIRIS### -->
+		<a href="javascript:PicLensLite.start();">
+      <img src="/typo3conf/ext/chgallery/res/gfx/piclens_badge.gif"  alt="PicLens" /><br />
+      ###COOLIRIS_START### 
+		</a>
+	<!-- ###COOLIRIS### -->
+
 	<!--###SUBDIR_NAVIGATION### start -->
 	<div class="info">
 		###DIR_TITLE###
@@ -156,11 +167,26 @@ A L L   M A R K E R S:
 		<div class="clr"></div>
 	</div>
 	<!--###PAGEBROWSER### end -->
-	
+
+	<!-- ###COOLIRIS### -->
+		<a href="javascript:PicLensLite.start();">
+      <img src="/typo3conf/ext/chgallery/res/gfx/piclens_badge.gif"  alt="PicLens" /><br />
+      ###COOLIRIS_START### 
+		</a>
+	<!-- ###COOLIRIS### -->
+		
 <!-- ###TEMPLATE### -->
 
 
 <!-- ###TEMPLATE_LIST### -->
+	<!-- ###COOLIRIS### -->
+		<a href="javascript:PicLensLite.start();">
+      <img src="/typo3conf/ext/chgallery/res/gfx/piclens_badge.gif"  alt="PicLens" /><br />
+      ###COOLIRIS_START### 
+		</a>
+	<!-- ###COOLIRIS### -->
+
+
 	<ul class="chgallery-list">
 		<!-- ###CONTENT### --><!-- ###ITEM### -->
 			<li class="item item###ZEBRA###" >
@@ -179,5 +205,14 @@ A L L   M A R K E R S:
 			</li>
 		<!-- ###ITEM### --><!-- ###CONTENT### -->
 	</ul>
+	
+	
+	<!-- ###COOLIRIS### -->
+		<a href="javascript:PicLensLite.start();">
+      <img src="/typo3conf/ext/chgallery/res/gfx/piclens_badge.gif"  alt="PicLens" /><br />
+      ###COOLIRIS_START### 
+		</a>
+	<!-- ###COOLIRIS### -->
+	
 <!-- ###TEMPLATE_LIST### -->
 

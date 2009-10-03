@@ -1,4 +1,40 @@
-08-09-29 2.1.0 Georg Ringer  <www.ringer.it>
+09-03-09 2.5.9 Georg Ringer <www.ringer.it>
+	* Bugfix: Remove ###edit### marker again, sorry
+	* Feature: Allow to set all options of typolink to the general link (e.g. link.additionalParams = &fo=123)
+	* Icons in the plugin, thx to Alex Buchgeher
+	* Add ts snippet for watermarks inside renderAllLinks within the lightbox		 	
+
+
+09-01-05 2.4.0 Georg Ringer  <www.ringer.it>
+	* Bugfix with version number
+	* Category description always ascending, thx to Jörg Schreiner
+
+
+09-01-05 2.3.0 Georg Ringer  <www.ringer.it>
+	* Sorting directories by date asc/desc, thx to Werner Starjakob
+	* French translation, thx Xavier Perseguers
+
+
+08-10-27 2.2.1 Georg Ringer  <www.ringer.it>
+	* Bug #1798: take sorting of categories into the wizard
+	* Feature #1753: check path in flexforms already
+	* Feature #1756: cooliris: link to the correct page, at least to the existing one		
+
+
+08-10-19 2.2.0 Georg Ringer  <www.ringer.it>
+	* Bug #1658 random mode restricted to gallery view
+	* Bug to show multilingual preview	
+	* Bug #1647 template in flexforms	
+	* Feature #1639 renderallLinks set in flexforms
+	* Feature #1641 exclude 1st image set in flexforms	
+	* Feature #1642 csh for flexforms
+	* Feature #1617 Add piclens to the gallery		
+	* Feature #1674 Support of realurl autoconfiguration	
+	* Support #1672 path to images in be plugin must end with /, thx hartmut	
+	* Updates manual 				
+
+
+08-09-30 2.1.1 Georg Ringer  <www.ringer.it>
 	* fixed bug Fatal error: Cannot use string offset as an array in ..., thx Michi
 	* deleted backup files, thx Clemens
 	* corrected XCLASS path, thx Clemens

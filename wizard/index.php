@@ -89,7 +89,7 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 				$flexformArray = $flexformArray['data']['sDEF']['lDEF'];
 
 					// get all the infos we need
-				$path 						= trim($flexformArray['path']['vDEF']);
+				$path 						= $this->checkPath(trim($flexformArray['path']['vDEF']));
 				$pagebrowser 			= $flexformArray['pagebrowser']['vDEF'];
 				$show				 			= $flexformArray['show']['vDEF'];
 			}
@@ -114,8 +114,11 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 				// get all the images from the directory
 				$fileTypes = 'jpg,gif,png';
 								
-				$imageList = t3lib_div::getFilesInDir(PATH_site.$path, $fileTypes,1,1);
+#				$imageList = t3lib_div::getFilesInDir(PATH_site.$path, $fileTypes,1,1);
 				$imageList = t3lib_div::getAllFilesAndFoldersInPath (array(), PATH_site.$path, $fileTypes, 0, 1);
+
+				// correct sorting
+				array_multisort($imageList, SORT_ASC);
 
 				$content.= '<h2>'.sprintf($LANG->getLL('images'), count($imageList), $path).'</h2>'.$LANG->getLL('description');				
 	      /*
@@ -215,6 +218,28 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 			return $text;
 		}
 
+		/**
+		 * Check the path for a secure and valid one
+		 *
+		 * @param	string		$path: Path which is checked
+		 * @return	string	valid path
+		 */	
+		function checkPath($path) {
+			$path = trim($path);
+			if (!t3lib_div::validPathStr($path)) {
+				return '';
+			}
+			
+			if (substr($path,-1)!='/') { // check for needed / at the end
+	      $path =  $path.'/';
+			}
+			
+			if (substr($path, 0, 1) =='/') { // check for / at the beginning
+				$path = substr($path, 1, -1);
+			}
+	
+			return $path;
+		}
 
 		/**
 		 * Returns a Thumbnail with maximum dimension of 100pixels

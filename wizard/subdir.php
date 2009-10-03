@@ -88,7 +88,8 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 				$flexformArray = $flexformArray['data']['sDEF']['lDEF'];
 				
 					// get all the infos we need
-				$path = trim($flexformArray['path']['vDEF']);
+				$path  = $this->checkPath(trim($flexformArray['path']['vDEF']));
+				$sort  = trim($flexformArray['categoryOrder']['vDEF']);
 				$title = explode(chr(10), trim($flexformArray['title']['vDEF']));
 			}
 			
@@ -114,7 +115,7 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 			
 			 else {	 
 	      
-	      $dir = $this->getFullDir(PATH_site.$path);
+	      $dir = $this->getFullDir(PATH_site.$path, $sort);
 	      
 	      /*
 	       * save
@@ -129,8 +130,8 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 					}
 					
 				}
-				
-				$dir = $this->getFullDir(PATH_site.$path);
+
+				$dir = $this->getFullDir(PATH_site.$path, $sort);
 
 				// get all the images from the directory
 				$fileTypes = 'jpg,gif,png';
@@ -145,15 +146,17 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 				#	$thumb = $this->getThumbNail($singleImage, 100);
 				#	$fileName = basename($singleImage);
 				#	$desc = $descriptionList[$i];
+					$checkForFiles = t3lib_div::getFilesInDir($value['path'], $fileTypes, 1,1);
 					
-					$content.= '<tr class="'.($i++ % 2==0 ? 'bgColor3' : 'bgColor4').'">
-											
-												<td><br />#'.$i.': <strong>'.$value['path'].'</strong><br />
-														'.$LANG->getLL('title').': '.$title[$i-1].' <br />
-														<textarea  name="dir['.$key.']" style="width:535px;height:50px;">'.$value['description'].'</textarea></td>
-														
-											</tr>';
-					
+					if (count($checkForFiles)>1) {
+						$content.= '<tr class="'.($i++ % 2==0 ? 'bgColor3' : 'bgColor4').'">
+												
+													<td><br />#'.$i.': <strong>'.$value['path'].'</strong><br />
+															'.$LANG->getLL('title').': '.$title[$i-1].' <br />
+															<textarea  name="dir['.$key.']" style="width:535px;height:50px;">'.$value['description'].'</textarea></td>
+															
+												</tr>';
+					}
 	
 				}
 				$content.='</table>';
@@ -192,12 +195,13 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 			return t3lib_BEfunc::getThumbNail($BACK_PATH.'thumbs.php', $file, '', $size);
 		}
 	
-	function getFullDir($path) {
+	function getFullDir($path, $sort='') {
 		$dir = t3lib_div::get_dirs($path);	
 		$newdir = array();
 
 		if(is_array($dir) && !empty($dir)) {
-			array_multisort($dir, SORT_ASC, SORT_STRING);
+			$sort = ($sort!='desc') ? SORT_ASC : SORT_DESC;
+			array_multisort($dir, $sort , SORT_STRING);
 		}
 
 		if (is_array($dir)) {
@@ -211,6 +215,30 @@ class tx_chgallery_wizard extends t3lib_SCbase {
 		
 		return $newdir;
 	}
+
+		/**
+		 * Check the path for a secure and valid one
+		 *
+		 * @param	string		$path: Path which is checked
+		 * @return	string	valid path
+		 */	
+		function checkPath($path) {
+			$path = trim($path);
+			if (!t3lib_div::validPathStr($path)) {
+				return '';
+			}
+			
+			if (substr($path,-1)!='/') { // check for needed / at the end
+	      $path =  $path.'/';
+			}
+			
+			if (substr($path, 0, 1) =='/') { // check for / at the beginning
+				$path = substr($path, 1, -1);
+			}
+	
+			return $path;
+		}
+
 	
 	function getDirDescription($path) {
 		$file = $path.'info'.$this->languagePrefix.'.txt';
