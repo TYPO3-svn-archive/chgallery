@@ -34,6 +34,8 @@ plugin.tx_chgallery_pi1 {
 	#################
 	single {
 		pass = 1
+		
+		description.htmlSpecialChars = 1
 	
 		image {
 			file.maxW = 554
@@ -71,6 +73,9 @@ plugin.tx_chgallery_pi1 {
 	#### CATEGORY VIEW 
 	#################
 	category {
+		title.htmlSpecialChars = 1
+		name.htmlSpecialChars = 1 
+		
 		image {
 			file.maxW = 100
 		}
@@ -93,14 +98,17 @@ plugin.tx_chgallery_pi1 {
 		excludeFirstImage = 0
 		
 		dir_description {
-			required = 1	
+			required = 1
+			htmlSpecialChars = 1
 			stdWrap.wrap = <br />|<br />
 		}
 		dir_title {
 			required = 1
+			htmlSpecialChars = 1
 			stdWrap.wrap = <strong>|</strong>
 		}
 		description {
+			htmlSpecialChars = 1
 			ifEmpty = &nbsp;
 		}
 		image {
